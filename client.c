@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/24 20:59:19 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/24 21:10:48 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	send_bits(int c, int pid)
 			kill(pid, SIGUSR2);
 		c = c << 1;
 		i++;
-		usleep(1000);
+		usleep(500);
 	}
 }
 

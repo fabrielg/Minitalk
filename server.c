@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/25 19:28:44 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/25 23:53:30 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 	static int	power = 0;
 
 	(void)context;
-	(void)info;
 	if (signum == SIGUSR1)
 		value += (128 >> power);
 	power++;
@@ -30,10 +29,14 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 		if (value)
 			ft_putchar_fd(value, 1);
 		else
+		{
 			ft_putchar_fd('\n', 1);
+			kill(info->si_pid, SIGUSR2);
+		}
 		power = 0;
 		value = 0b0;
 	}
+	kill(info->si_pid, SIGUSR1);
 }
 
 int	main(void)

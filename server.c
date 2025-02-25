@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/24 21:03:37 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/25 11:22:47 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	struct sigaction	sa;
 
 	pid = getpid();
-	ft_printf("\e[%imServer PID : \e[%im%d\e[39m\n", 32, 33, pid);
+	ft_printf("%sServer PID : %s%d%s\n", GREEN_B, YELLOW_B, pid, RESET);
 	sa.sa_handler = signal_handler;
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);

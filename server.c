@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/25 23:53:30 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:53:28 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 		else
 		{
 			ft_putchar_fd('\n', 1);
-			kill(info->si_pid, SIGUSR2);
+			if (kill(info->si_pid, SIGUSR2))
+				ft_putstr_fd("ERROR: Can't send confirmation to the pid.\n", 1);
 		}
 		power = 0;
 		value = 0b0;

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 11:43:06 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:45:34 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	send_bits(int c, int pid)
 	while (i < 8)
 	{
 		g_bit_waiter = MAX_TRY;
-		if (!kill(pid, (!(c & 0b10000000) * (SIGUSR2 - SIGUSR1) + SIGUSR1)))
+		if (kill(pid, (!(c & 0b10000000) * (SIGUSR2 - SIGUSR1) + SIGUSR1)))
 		{
 			ft_putstr_fd("Failed to send byte: Invalid PID\n", 1);
 			exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 11:45:34 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:47:05 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int	main(int ac, char **av)
 	init_signal(SIGUSR1, signal_handler);
 	init_signal(SIGUSR2, signal_handler);
 	send_str(str, server_pid);
+	ft_putstr_fd("Message not received !\n", 1);
 	return (0);
 }

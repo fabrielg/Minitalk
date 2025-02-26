@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:35:40 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/26 19:22:49 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/26 19:39:21 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ COMMANDS_SRCS = \
 	commands/command_exit.c\
 	commands/command_linux.c\
 	commands/command_heart.c\
-	commands/command_quoi.c
+	commands/command_quoi.c\
+	commands/emoji_heart.c
 
 SERVER_OBJ_DIR = server_obj
 CLIENT_OBJ_DIR = client_obj

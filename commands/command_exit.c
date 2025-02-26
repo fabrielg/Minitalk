@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   command_manager.h                                  :+:      :+:    :+:   */
+/*   command_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 17:02:55 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 19:39:59 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 18:04:42 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 19:23:31 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COMMAND_MANAGER_H
-# define COMMAND_MANAGER_H
+#include "../minitalk.h"
+#include "../libft/libft.h"
 
-int		apply_command(char *cmd, int pid);
-
-void	command_exit(char *cmd);
-void	command_heart(int pid);
-void	command_quoi(int pid);
-void	command_linux(int pid);
-void	emoji_heart(int pid);
-
-#endif
+void	command_exit(char *cmd)
+{
+	free(cmd);
+	exit(EXIT_SUCCESS);
+}

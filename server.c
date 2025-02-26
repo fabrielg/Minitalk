@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 11:53:28 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 12:01:05 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,23 @@
 
 void	signal_handler(int signum, siginfo_t *info, void *context)
 {
-	static int	value = 0b0;
-	static int	power = 0;
+	static int			value = 0b0;
+	static int			power = 0;
+	static t_strbuilder	*message = NULL;
 
 	(void)context;
+	if (message == NULL)
+		message = ft_sb_new();
 	if (signum == SIGUSR1)
 		value += (128 >> power);
 	power++;
 	if (power >= 8)
 	{
-		if (value)
-			ft_putchar_fd(value, 1);
-		else
+		ft_sb_add_char(message, value);
+		if (!value)
 		{
+			ft_sb_display(message);
+			ft_sb_clear(&message);
 			ft_putchar_fd('\n', 1);
 			if (kill(info->si_pid, SIGUSR2))
 				ft_putstr_fd("ERROR: Can't send confirmation to the pid.\n", 1);
@@ -42,7 +46,7 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	int					pid;
+	int	pid;
 
 	pid = getpid();
 	ft_printf("%sServer PID : %s%d%s\n", GREEN_B, YELLOW_B, pid, RESET);

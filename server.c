@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:55:58 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:58:57 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #define PID "%sServer PID : %s%d%s\n"
 #define MESSAGE "\n%sMessage received from PID: %s%d\n%s"
 
-void	display_message(t_strbuilder **message, int pid)
+static void	display_message(t_strbuilder **message, int pid)
 {
 	ft_printf(MESSAGE, BLACK_B, YELLOW_B, pid, GREY_B);
 	ft_sb_display(*message);
@@ -28,7 +28,7 @@ void	display_message(t_strbuilder **message, int pid)
 	ft_printf("%s\n", RESET);
 }
 
-void	signal_handler(int signum, siginfo_t *info, void *context)
+static void	signal_handler(int signum, siginfo_t *info, void *context)
 {
 	static unsigned char	value = 0b0;
 	static int				power = 0;

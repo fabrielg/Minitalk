@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:55:42 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:59:09 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int	g_bit_waiter = MAX_TRY;
 
-void	send_bits(unsigned char c, int pid)
+static void	send_bits(unsigned char c, int pid)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ void	send_bits(unsigned char c, int pid)
 	}
 }
 
-void	send_str(char *str, int pid)
+static void	send_str(char *str, int pid)
 {
 	while (*str)
 	{
@@ -60,7 +60,7 @@ void	send_str(char *str, int pid)
 	send_bits(0, pid);
 }
 
-void	signal_handler(int signum, siginfo_t *info, void *context)
+static void	signal_handler(int signum, siginfo_t *info, void *context)
 {
 	(void)context;
 	(void)info;

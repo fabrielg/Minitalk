@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:21:19 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:55:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	display_message(t_strbuilder **message, int pid)
 
 void	signal_handler(int signum, siginfo_t *info, void *context)
 {
-	static int			value = 0b0;
-	static int			power = 0;
-	static t_strbuilder	*message = NULL;
+	static unsigned char	value = 0b0;
+	static int				power = 0;
+	static t_strbuilder		*message = NULL;
 
 	(void)context;
 	if (message == NULL)

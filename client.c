@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:50:38 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:55:42 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int	g_bit_waiter = MAX_TRY;
 
-void	send_bits(int c, int pid)
+void	send_bits(unsigned char c, int pid)
 {
 	int	i;
 

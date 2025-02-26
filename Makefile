@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:35:40 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/26 20:07:45 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/26 20:25:35 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,12 @@ COMMANDS_SRCS = \
 	commands/command_heart.c\
 	commands/command_rainbow.c\
 	commands/command_quoi.c\
-	commands/emoji_heart.c
+	commands/emoji_heart.c\
+	commands/emoji_happy.c\
+	commands/emoji_joy.c\
+	commands/emoji_skull.c\
+	commands/emoji_sob.c\
+	commands/emoji_upside.c\
 
 SERVER_OBJ_DIR = server_obj
 CLIENT_OBJ_DIR = client_obj

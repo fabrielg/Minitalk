@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:35:40 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/25 19:29:07 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/26 20:25:35 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,32 @@ LIBFT =				./libft/libft.a
 
 SERVER_SRCS = \
 	server.c\
-	init_signal.c
+	init_signal.c\
+	command_manager.c
 
 CLIENT_SRCS = \
 	client.c\
 	init_signal.c
 
+COMMANDS_SRCS = \
+	commands/command_exit.c\
+	commands/command_linux.c\
+	commands/command_heart.c\
+	commands/command_rainbow.c\
+	commands/command_quoi.c\
+	commands/emoji_heart.c\
+	commands/emoji_happy.c\
+	commands/emoji_joy.c\
+	commands/emoji_skull.c\
+	commands/emoji_sob.c\
+	commands/emoji_upside.c\
+
 SERVER_OBJ_DIR = server_obj
 CLIENT_OBJ_DIR = client_obj
 
-SERVER_OBJS = $(addprefix $(SERVER_OBJ_DIR)/, $(notdir $(SERVER_SRCS:.c=.o)))
-CLIENT_OBJS = $(addprefix $(CLIENT_OBJ_DIR)/, $(notdir $(CLIENT_SRCS:.c=.o)))
+SERVER_OBJS =	$(addprefix $(SERVER_OBJ_DIR)/, $(notdir $(SERVER_SRCS:.c=.o))) \
+				$(addprefix $(SERVER_OBJ_DIR)/, $(addsuffix .o, $(basename $(COMMANDS_SRCS))))
+CLIENT_OBJS =	$(addprefix $(CLIENT_OBJ_DIR)/, $(notdir $(CLIENT_SRCS:.c=.o)))
 
 all: $(SERVER_NAME) $(CLIENT_NAME)
 
@@ -42,6 +57,10 @@ $(LIBFT):
 
 $(SERVER_OBJ_DIR)/%.o: %.c
 	mkdir -p $(SERVER_OBJ_DIR)
+	cc -g3 $(CFLAGS) -c -o $@ $^
+
+$(SERVER_OBJ_DIR)/commands/%.o: commands/%.c
+	mkdir -p $(SERVER_OBJ_DIR)/commands
 	cc -g3 $(CFLAGS) -c -o $@ $^
 
 $(CLIENT_OBJ_DIR)/%.o: %.c

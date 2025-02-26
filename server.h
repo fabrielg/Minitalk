@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   server.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 19:17:28 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:34 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 17:22:36 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 17:42:14 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef SERVER_H
+# define SERVER_H
 
-# include <signal.h>
-# include "server.h"
-# include "client.h"
-
-void	init_signal(int signum, void (*handler)(int, siginfo_t *, void *));
+# define CONFIRM_ERR "%s%sERROR: Can't send confirmation to the pid%s%s %d%s\n"
+# define PID "%sServer PID : %s%d%s\n"
+# define MESSAGE "\n%sMessage received from PID: %s%d\n%s"
 
 #endif

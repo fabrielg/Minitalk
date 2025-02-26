@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:59:09 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:24:02 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 #include "minitalk.h"
 #include <unistd.h>
 #include <signal.h>
-
-#define INVALID_PID "%sFailed to send byte: Invalid PID %s%d%s\n"
-#define TIMEOUT "%sFailed to send byte: Timeout%s\n"
-#define RECEIVED "%sMessage received !%s\n"
-#define NOT_RECEIVED "%sMessage not received !%s\n"
 
 #define MAX_TRY 100
 

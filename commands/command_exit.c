@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   command_exit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 19:17:28 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:34 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 18:04:42 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 19:23:31 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../minitalk.h"
+#include "../libft/libft.h"
 
-# include <signal.h>
-# include "server.h"
-# include "client.h"
-
-void	init_signal(int signum, void (*handler)(int, siginfo_t *, void *));
-
-#endif
+void	command_exit(char *cmd)
+{
+	free(cmd);
+	exit(EXIT_SUCCESS);
+}

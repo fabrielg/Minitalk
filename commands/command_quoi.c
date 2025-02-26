@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   command_quoi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 19:17:28 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:34 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 18:11:39 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 19:23:55 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../minitalk.h"
+#include "../libft/libft.h"
 
-# include <signal.h>
-# include "server.h"
-# include "client.h"
-
-void	init_signal(int signum, void (*handler)(int, siginfo_t *, void *));
-
-#endif
+void	command_quoi(int pid)
+{
+	ft_printf(MESSAGE, BLACK_B, YELLOW_B, pid, GREY_B);
+	ft_printf("Quoi ? FEUR !!!%s\n", RESET);
+}

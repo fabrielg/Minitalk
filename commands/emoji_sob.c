@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   emoji_sob.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 19:17:28 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:34 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 17:21:15 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 20:19:13 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "../minitalk.h"
+#include "../libft/libft.h"
 
-# include <signal.h>
-# include "server.h"
-# include "client.h"
-
-void	init_signal(int signum, void (*handler)(int, siginfo_t *, void *));
-
-#endif
+void	emoji_sob(int pid)
+{
+	ft_printf(MESSAGE, BLACK_B, YELLOW_B, pid, RESET);
+	ft_printf("%s\n", "😭");
+}

@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:41:58 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:50:38 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	send_bits(int c, int pid)
 		c = c << 1;
 		i++;
 		while (--g_bit_waiter > 0)
-			usleep(100);
+			usleep(10);
 		if (g_bit_waiter == 0)
 		{
 			ft_printf(TIMEOUT, RED_B, RESET);
 			exit(EXIT_FAILURE);
 		}
-		usleep(100);
+		usleep(10);
 	}
 }
 

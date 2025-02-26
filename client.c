@@ -6,7 +6,7 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:26:05 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:41:58 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	signal_handler(int signum, siginfo_t *info, void *context)
 	(void)info;
 	if (signum == SIGUSR1)
 		g_bit_waiter = -1;
-	else if (signum != SIGUSR2)
+	else if (signum == SIGUSR2)
 	{
 		ft_printf(RECEIVED, GREEN, RESET);
 		exit(EXIT_SUCCESS);

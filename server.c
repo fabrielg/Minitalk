@@ -6,26 +6,31 @@
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:33:45 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 14:58:57 by gfrancoi         ###   ########.fr       */
+/*   Updated: 2025/02/26 18:07:49 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "minitalk.h"
+#include "command_manager.h"
 #include <unistd.h>
 #include <signal.h>
 
-#define INVALID_PID "%s%sERROR: Can't send confirmation to the pid%s%s %d%s\n"
-#define PID "%sServer PID : %s%d%s\n"
-#define MESSAGE "\n%sMessage received from PID: %s%d\n%s"
-
-static void	display_message(t_strbuilder **message, int pid)
+static void	display_message(t_strbuilder **build, int pid)
 {
-	ft_printf(MESSAGE, BLACK_B, YELLOW_B, pid, GREY_B);
-	ft_sb_display(*message);
-	ft_sb_clear(message);
-	*message = NULL;
-	ft_printf("%s\n", RESET);
+	char	*message;
+
+	message = ft_sb_build(*build);
+	ft_sb_clear(build);
+	*build = NULL;
+	if (!message)
+		return ;
+	if (!apply_command(message, pid))
+	{
+		ft_printf(MESSAGE, BLACK_B, YELLOW_B, pid, GREY_B);
+		ft_printf("%s%s\n", message, RESET);
+	}
+	free(message);
 }
 
 static void	signal_handler(int signum, siginfo_t *info, void *context)
@@ -45,10 +50,10 @@ static void	signal_handler(int signum, siginfo_t *info, void *context)
 		ft_sb_add_char(message, value);
 		if (!value)
 		{
-			display_message(&message, info->si_pid);
 			if (kill(info->si_pid, SIGUSR2))
-				ft_printf(INVALID_PID, RED_BG, GREY_B, RESET, YELLOW_B,
+				ft_printf(CONFIRM_ERR, RED_BG, GREY_B, RESET, YELLOW_B,
 					info->si_pid, RESET);
+			display_message(&message, info->si_pid);
 		}
 		power = 0;
 		value = 0b0;

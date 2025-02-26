@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   command_manager.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 19:17:28 by gfrancoi          #+#    #+#             */
-/*   Updated: 2025/02/26 17:23:34 by gfrancoi         ###   ########.fr       */
+/*   Created: 2025/02/26 17:02:55 by gfrancoi          #+#    #+#             */
+/*   Updated: 2025/02/26 18:17:07 by gfrancoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef COMMAND_MANAGER_H
+# define COMMAND_MANAGER_H
 
-# include <signal.h>
-# include "server.h"
-# include "client.h"
+int		apply_command(char *cmd, int pid);
 
-void	init_signal(int signum, void (*handler)(int, siginfo_t *, void *));
+void	command_exit(char *cmd);
+void	command_heart(int pid);
+void	command_quoi(int pid);
+void	command_linux(int pid);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: gfrancoi <gfrancoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 13:35:40 by gfrancoi          #+#    #+#              #
-#    Updated: 2025/02/24 15:22:49 by gfrancoi         ###   ########.fr        #
+#    Updated: 2025/02/25 19:29:07 by gfrancoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ CFLAGS =			-Wall -Wextra -Werror
 LIBFT =				./libft/libft.a
 
 SERVER_SRCS = \
-	server.c
+	server.c\
+	init_signal.c
 
 CLIENT_SRCS = \
-	client.c
+	client.c\
+	init_signal.c
 
 SERVER_OBJ_DIR = server_obj
 CLIENT_OBJ_DIR = client_obj

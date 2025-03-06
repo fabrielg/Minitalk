@@ -61,10 +61,16 @@ static void	signal_handler(int signum, siginfo_t *info, void *context)
 	kill(info->si_pid, SIGUSR1);
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	int	pid;
 
+	(void)av;
+	if (ac > 1)
+	{
+		ft_putendl_fd("Usage: ./server", 1);
+		return (0);
+	}
 	pid = getpid();
 	ft_printf(PID, GREEN_B, YELLOW_B, pid, RESET);
 	init_signal(SIGUSR1, signal_handler);

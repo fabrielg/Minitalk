@@ -74,7 +74,10 @@ int	main(int ac, char **av)
 	char	*str;
 
 	if (ac != 3)
+	{
+		ft_putendl_fd("Usage: ./client <SERVER PID> <MESSAGE>", 1);
 		return (0);
+	}
 	server_pid = ft_atoi(av[1]);
 	str = av[2];
 	init_signal(SIGUSR1, signal_handler);
